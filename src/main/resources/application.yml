@@ -1,0 +1,23 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate.jdbc.time_zone: UTC
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+  flyway:
+    enabled: true
+
+# TEST / DESIGN CONFIGURATION — not production recommendations.
+lab:
+  outbox:
+    claim-batch-size: 20
+    lease-seconds: 5
+    backoff-base-ms: 10
+    backoff-cap-ms: 200
+    max-attempts: 8
+  consumer:
+    max-attempts: 3
+    backoff-base-ms: 1
+    backoff-cap-ms: 50

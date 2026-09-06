@@ -1,0 +1,13 @@
+package com.lab.orders.order;
+
+public enum OrderStatus {
+	CREATED,
+	AWAITING_INVENTORY,
+	INVENTORY_RESERVED,
+	AWAITING_PAYMENT,
+	PAID,
+	READY_TO_SHIP,
+	SHIPPED,
+	INVENTORY_REJECTED,
+	PAYMENT_FAILED
+}
