@@ -31,7 +31,10 @@ This is a **reliability lab**, not an ecommerce platform. There is no UI,
 catalog, checkout, Kafka, saga engine, or exactly-once claim.
 
 The broker is an in-process **LAB / TEST BROKER** (`LabBroker`). Semantics
-are broker-neutral.
+are broker-neutral. The diagram's Kafka / RabbitMQ label is an example
+of a production broker, not what this lab runs.
+
+![Event-Driven Order Platform — asynchronous order workflow with inbox, outbox, idempotent consumers, and at-least-once delivery](docs/images/event-driven-order-platform.png)
 
 ## Thesis
 
