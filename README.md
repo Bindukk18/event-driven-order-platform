@@ -103,10 +103,16 @@ inbox claim
 Then a relay publishes **outside** that transaction. There is no
 `DB commit` then `broker.publish()` on the producer path.
 
-## Failure stops the workflow
+## Saga architecture
 
-`InventoryRejected` and `PaymentFailed` are terminals. This lab does
-**not** compensate. A later saga-orchestration lab covers that.
+This lab stops on failure. It does **not** run a saga orchestrator,
+compensation, or UNKNOWN recovery. That work belongs in a later
+saga-orchestration lab. The intended architecture is:
+
+![Saga Orchestration Lab — durable orchestrator for Order → Inventory → Payment → Shipping with compensation, retries, and UNKNOWN outcomes](docs/images/saga-orchestration.png)
+
+`InventoryRejected` and `PaymentFailed` are terminals here. A later
+saga-orchestration lab covers compensation.
 
 A payment provider timeout is **PAYMENT_UNKNOWN**, not failure.
 
